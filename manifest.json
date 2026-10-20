@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Consumo diario de datos",
+  "version": "2.0",
+  "description": "Cuántos MB consume tu navegador por día y por mes, y qué sitios consumen más.",
+  "permissions": ["webRequest", "storage", "unlimitedStorage", "favicon"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html", "default_title": "Consumo de datos" },
+  "icons": { "16": "icon16.png", "48": "icon48.png", "128": "icon128.png" }
+}

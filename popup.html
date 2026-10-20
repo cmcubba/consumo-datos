@@ -1,0 +1,27 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><link rel="stylesheet" href="style.css">
+<style>
+  body{width:360px;padding:12px}
+  .stack{display:grid;gap:10px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .mini .big{font-size:20px}
+  .footer{display:flex;justify-content:flex-end}
+  .card{padding:14px}
+</style></head>
+<body><div class="stack">
+  <div class="card hero">
+    <div class="label">Hoy</div>
+    <div class="big" id="today">0 MB</div>
+    <div class="sub" id="delta"></div>
+  </div>
+  <div class="row2">
+    <div class="card mini"><div class="label">Este mes</div><div class="big" id="month">0 MB</div></div>
+    <div class="card mini"><div class="label">Ayer</div><div class="big" id="yest">0 MB</div></div>
+  </div>
+  <div class="card"><div class="label">Últimos 7 días</div><div id="chart"></div></div>
+  <div class="card"><div class="label">Sitios que más consumen hoy</div><div id="sites"></div></div>
+  <div class="footer"><button class="btn primary" id="open">Ver panel completo →</button></div>
+</div>
+<script src="shared.js"></script>
+<script src="popup.js"></script>
+</body></html>

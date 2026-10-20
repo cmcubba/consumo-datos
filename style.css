@@ -1,0 +1,44 @@
+:root{
+  --bg:#f5f7fb; --card:#ffffff; --text:#0f172a; --muted:#64748b; --line:#e8ecf3;
+  --accent:#2563eb; --accent2:#7c3aed; --bar:#c7d6fb; --good:#16a34a; --bad:#dc2626;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#0b1020; --card:#151b2e; --text:#e8ecf6; --muted:#8b97b3; --line:#232b45; --bar:#2b3a6b; }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{margin:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.label{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.hero{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none}
+.hero .label{color:rgba(255,255,255,.8)}
+.big{font-size:34px;font-weight:800;letter-spacing:-.02em}
+.sub{font-size:12px;opacity:.85;margin-top:2px}
+.empty{color:var(--muted);padding:12px 0;text-align:center}
+
+/* gráfico */
+svg{width:100%;height:auto;display:block}
+.bar-rect{fill:var(--bar);transition:fill .15s}
+.b:hover .bar-rect{fill:var(--accent)}
+.b.sel .bar-rect{fill:var(--accent)}
+.b.zero .bar-rect{opacity:.5}
+.hit{fill:transparent;cursor:pointer}
+.lbl{fill:var(--muted);font-size:10px}
+
+/* sitios */
+.site{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}
+.site:last-child{border-bottom:none}
+.fav{width:20px;height:20px;border-radius:5px;flex:none}
+.site-main{flex:1;min-width:0}
+.site-name{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar{height:6px;background:var(--line);border-radius:99px;margin-top:5px;overflow:hidden}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:99px}
+.site-right{text-align:right;flex:none;min-width:64px}
+.site-size{font-weight:700;font-variant-numeric:tabular-nums}
+.site-pct{font-size:11px;color:var(--muted)}
+
+button,input,select{font:inherit;color:var(--text)}
+.btn{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:7px 12px;cursor:pointer}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.danger:hover{border-color:var(--bad);color:var(--bad)}

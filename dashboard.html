@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Consumo de datos</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .wrap{max-width:980px;margin:0 auto;padding:24px 16px 60px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+  header h1{font-size:22px}
+  .tabs{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:4px}
+  .tab{border:none;background:none;padding:7px 18px;border-radius:9px;cursor:pointer;font-weight:600;color:var(--muted)}
+  .tab.active{background:var(--accent);color:#fff}
+  .nav{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+  .nav .title{font-weight:700;font-size:16px;text-transform:capitalize;flex:1;min-width:160px}
+  .grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:14px}
+  .stat .big{font-size:26px}
+  .card.mb{margin-bottom:14px}
+  input[type=date],select{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:7px 10px}
+  .actions{display:flex;gap:8px;margin-top:20px;justify-content:flex-end}
+  .hidden{display:none}
+</style></head>
+<body><div class="wrap">
+  <header>
+    <h1>📶 Consumo de datos</h1>
+    <div class="tabs">
+      <button class="tab active" id="tabDay">Por día</button>
+      <button class="tab" id="tabMonth">Por mes</button>
+    </div>
+  </header>
+
+  <section id="viewDay">
+    <div class="nav">
+      <button class="btn" id="dPrev">←</button>
+      <input type="date" id="dayInput">
+      <button class="btn" id="dNext">→</button>
+      <div class="title" id="dayTitle"></div>
+      <button class="btn" id="dToday">Hoy</button>
+    </div>
+    <div class="grid3">
+      <div class="card hero stat"><div class="label">Consumo del día</div><div class="big" id="dayTotal"></div><div class="sub" id="dayDelta"></div></div>
+      <div class="card stat"><div class="label">Sitios distintos</div><div class="big" id="daySites"></div></div>
+      <div class="card stat"><div class="label">Sin tamaño declarado</div><div class="big" id="dayUnknown"></div><div class="sub" style="color:var(--muted)">respuestas no contadas</div></div>
+    </div>
+    <div class="card mb"><div class="label">Últimos 30 días (clic en una barra)</div><div id="dayChart"></div></div>
+    <div class="card"><div class="label">Sitios que consumieron ese día</div><div id="daySitesList"></div></div>
+  </section>
+
+  <section id="viewMonth" class="hidden">
+    <div class="nav">
+      <button class="btn" id="mPrev">←</button>
+      <select id="monthSelect"></select>
+      <button class="btn" id="mNext">→</button>
+      <div class="title" id="monthTitle"></div>
+      <button class="btn" id="mNow">Este mes</button>
+    </div>
+    <div class="grid3">
+      <div class="card hero stat"><div class="label">Consumo del mes</div><div class="big" id="monthTotal"></div><div class="sub" id="monthSub"></div></div>
+      <div class="card stat"><div class="label">Promedio por día activo</div><div class="big" id="monthAvg"></div></div>
+      <div class="card stat"><div class="label">Día de mayor consumo</div><div class="big" id="monthPeak"></div><div class="sub" style="color:var(--muted)" id="monthPeakDay"></div></div>
+    </div>
+    <div class="card mb"><div class="label">Consumo por día del mes (clic para ver el día)</div><div id="monthDaysChart"></div></div>
+    <div class="card mb"><div class="label">Últimos 12 meses (clic para elegir)</div><div id="months12Chart"></div></div>
+    <div class="card"><div class="label">Sitios que más consumieron en el mes</div><div id="monthSitesList"></div></div>
+  </section>
+
+  <div class="actions">
+    <button class="btn" id="csv">Exportar CSV</button>
+    <button class="btn danger" id="reset">Borrar historial</button>
+  </div>
+</div>
+<script src="shared.js"></script>
+<script src="dashboard.js"></script>
+</body></html>
